@@ -73,3 +73,22 @@ nav li:first-child a{
 	border-style: none solid solid solid;
 	border-width: 1px;
 }
+
+
+/* CORPS DU SITE */
+
+#content{
+	width: 60%;
+	box-sizing: border-box;
+	padding: 20px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 800px;
+	background-image: url("style/test_formulaire.png");
+	
+}
+
+#content img{
+	width: 100%;
+}

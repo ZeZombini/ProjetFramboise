@@ -10,7 +10,7 @@
    <?php include("header.view.php") ; ?>
    
 	<div id="content">
-		
+		<img src="style/test_formulaire.png"/>
 	</div>
 	
 	<footer>

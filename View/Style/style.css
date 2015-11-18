@@ -9,8 +9,9 @@ header{
 }
 
 #header-top div{
-	width: 45%;
 	display: inline-block;
+	box-sizing: border-box;
+	width: 50%;
 	vertical-align: top;
 }
 
@@ -54,10 +55,14 @@ nav li{
 
 
 nav a{
-	box-sizing: border-box;
 	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	text-align: center;
 	width: 25%;
+	font-size: 1.1em;
+	text-decoration: none;
 	/* Les bordures */
 	border-width: 1px;
 	border-style: none solid solid none;

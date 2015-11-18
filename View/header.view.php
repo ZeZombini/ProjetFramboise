@@ -1,7 +1,7 @@
 <header>
 		<div id="header-top">
 			<div id="header-left">
-				<img id="logo" src="../View/style/img/molpe_small.png" />
+				<img id="logo" src="../view/style/img/molpe_small.png" />
 			</div><!--
 			
 			--><div id="header-right">
@@ -9,7 +9,7 @@
 					<span id="username">Michel</span>
 					<a href="#">Connexion / Déconnexion</a>
 				</div>
-				<img id="img-profil" src="../View/style/img/noimage.jpg"/>
+				<img id="img-profil" src="../view/style/img/noimage.jpg"/>
 			</div>
 		</div>
 		<div id="header-bottom">

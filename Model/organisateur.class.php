@@ -8,7 +8,7 @@ class Organisateur extends Utilisateur {
   // Variables deorganisateur
   var $nom;
   var $prenom;
-
+  
   // Association avec Scene
   var $scenes; // Cardinalité : *
   // Association avec Evenement

@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <title>MOLPE - Moteur d'Organisation, Listing et Partage d'Evénementiels </title>
-	 <link rel="stylesheet" href="style/style.css"> 
-  </head>
-  
-  <body>
-	<header>
+<header>
 		<div id="header-top">
 			<div id="header-left">
 				<img id="logo" src="../view/style/img/molpe_small.png" />
-			</div>
+			</div><!--
 			
-			<div id="header-right">
+			--><div id="header-right">
 				<div id="account">
 					<span id="username">Michel</span>
 					<a href="#">Connexion / Déconnexion</a>
@@ -34,18 +25,3 @@
 		
 		
 	</header>
-	
-	
-	
-	
-	
-	<div id="content">
-		
-	</div>
-	
-	<footer>
-	
-	
-	</footer>
-  </body>
-</html>

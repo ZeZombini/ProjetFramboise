@@ -1,8 +1,8 @@
 <?php
-// A revoir avec BD concernant les cardinalités
+// Ok avec la V1
 require_once("organisateur.class.php");
-require_once("passage.class.php");
-require_once("scene.class.php");
+require_once("DAO.class.php");
+
 class Evenement {
 
   // Variables de l'événement
@@ -15,11 +15,25 @@ class Evenement {
   var $catering;
   var $remunerer;
   var $matosDispo;
-  // Association avec Groupe via heure de passage
-  var $passage; // Cardinalité : 1
-  // Association avec Scène
-  var $scene; // Cardinalité : 1..*
+
+  include("getter/evenement.getter.php");
+
   // Association avec organisateur
-  var $idOrga; // Cardinalité : 1
+  var $idOrga; // id de la BD
+  var $organisateur; // Cardinalité : 1
+
+  // Association avec Scene
+  var $scenes; // Cardinalité *
+
+  // Association avec Passage
+  var $passages; // Cardinalité *
+
+  function __construct() {
+    $dao = new DAO();
+    $this->organisateur = $dao->getOrganisateurFromID($this->idOrga);
+    $this->scene        = $dao->getScenesFromEvenementID($this->idEvenement);
+    $this->passages     = $dao->getPassagesFromEvenementID($this->idEvenement);
+  }
+
 }
  ?>

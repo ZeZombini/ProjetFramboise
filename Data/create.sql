@@ -84,11 +84,12 @@ CREATE TABLE Lieu(
 
 
 CREATE TABLE Salle(
-	idLieu		INTEGER,
+	idDuLieu	INTEGER,
 	idProprio	INTEGER,
 	carte 		VARCHAR(100),
 	description	VARCHAR(100),
-	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga)
+	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga),
+	FOREIGN KEY (idDuLieu) REFERENCES Lieu(idLieu)
 
 )
 
@@ -111,7 +112,8 @@ CREATE TABLE Passage(
 	idGroupe	INTEGER,
 	idEvenement	INTEGER,
 	idScene		INTEGER,
-	datePass	DATE,
+	datePassage	DATE,
+	dateBalance DATE,
 	PRIMARY KEY(idGroupe, idEvenement, idScene),
 	FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe),
 	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement),

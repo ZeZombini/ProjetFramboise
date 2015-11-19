@@ -23,8 +23,10 @@ class Utilisateur {
 	              	$q = "SELECT count(*) FROM Utilisateur WHERE mail=$mail and mdp=$mdp";
 	              	$r = $this->db->exec($q);
 	              	if ($r == 0) {
+	              		flash('dberror', 'Ce compte n\'existe pas.');
 	              		return false;
 	              	} else {
+	              		flash('connexion', 'Connexion effectuée.');
 	              		return true;
 	              	}
 
@@ -36,10 +38,18 @@ class Utilisateur {
 	    }
  	}
 
+ 	public logout(){
+
+ 	}
+
+ 	public register($mail,$mdp){
+ 		$mdp = password($mdp);
+
+ 	}
 
    	private password($mdp){
-    	$salt = "9W5NXle5691ah08tWKz02DJB40E6XFU3";
-    	$mdp = md5($mdp . $salt);
+    	$salt = "9W5Ntleg691h4208tWKz02D40E6XmFU3";
+    	$mdp = hash('sha512', $salt . $mdp);
     	return $mdp;
 	}
 

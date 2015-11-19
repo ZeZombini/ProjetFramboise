@@ -20,9 +20,8 @@ class Utilisateur {
 	  	if ($mail != NULL && $mdp !=NULL) {
 	            try {
 	            	$mdp = password($mdp);
-	              	$q = "SELECT count(*) FROM Utilisateur WHERE mail=$mail and mdp=$mdp";
-	              	$r = $this->db->exec($q);
-	              	if ($r == 0) {
+	              	$temp = $this->db->query("SELECT count(*) FROM Utilisateur WHERE mail=$mail and mdp=$mdp");
+	              	if ($temp != FALSE) {
 	              		flash('dberror', 'Ce compte n\'existe pas.');
 	              		return false;
 	              	} else {
@@ -42,9 +41,26 @@ class Utilisateur {
 
  	}
 
- 	public register($mail,$mdp){
- 		$mdp = password($mdp);
-
+ 	public register($mail,$mdp){		
+		if ($mail != NULL && $mdp !=NULL) {
+	            try {
+	            	$mdp = password($mdp);
+	              	$temp = $this->db->query("SELECT count(*) FROM Utilisateur WHERE mail=$mail");
+	              	if ($temp == FALSE) {
+	              		flash('dberror', 'Cette adresse email est déja utilisée.');
+	              		return false;
+	              	} else {
+	              		$q = "INSERT INTO Utilisateur (mail,mdp) VALUES ('$mail','$mdp')";
+	              		$r = $this->db->exec($q);
+	              		flash('connexion', 'Inscription réussie.');
+	              		return true;
+	              	}
+	            } catch (PDOException $e) {
+	            	
+	            }
+	    } else {
+	    	return false;
+	    }
  	}
 
    	private password($mdp){

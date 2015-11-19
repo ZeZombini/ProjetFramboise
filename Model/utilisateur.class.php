@@ -16,26 +16,28 @@ class Utilisateur {
   var $contacts;
 
 
-  public login($mail,$mdp){
-  	if ($mail != NULL && $mdp !=NULL) {
-            try {
-            	$mdp = password($mdp);
-              	$q = "SELECT email,mdp FROM Utilisateur WHERE mail=$mail and mdp=$mdp";
-              	$r = $this->db->exec($q);
-              	if ($r == 0) {
-              	return false;
-              }
-              
-            } catch (PDOException $e) {
-            
-            }
-    } else {
-    	return false;
-    }
+ 	public login($mail,$mdp){
+	  	if ($mail != NULL && $mdp !=NULL) {
+	            try {
+	            	$mdp = password($mdp);
+	              	$q = "SELECT count(*) FROM Utilisateur WHERE mail=$mail and mdp=$mdp";
+	              	$r = $this->db->exec($q);
+	              	if ($r == 0) {
+	              		return false;
+	              	} else {
+	              		return true;
+	              	}
 
-  }
+	            } catch (PDOException $e) {
+	            	
+	            }
+	    } else {
+	    	return false;
+	    }
+ 	}
 
-    private function password($mdp){
+
+   	private password($mdp){
     	$salt = "9W5NXle5691ah08tWKz02DJB40E6XFU3";
     	$mdp = md5($mdp . $salt);
     	return $mdp;
